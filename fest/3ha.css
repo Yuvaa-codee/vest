@@ -1,0 +1,148 @@
+.hbody {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('3bg.png');
+    background-size: cover;
+    color: #fff;
+}
+
+.habout-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 150px;
+    background: rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap;
+}
+
+.hcontent {
+    max-width: 600px;
+    margin-left: 2px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.hlearn-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.hlearn-more:hover {
+    background-color: #0056b3;
+}
+
+.hstats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.hstat {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.hstat h2 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.hstat p {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .habout-section {
+        padding: 100px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .habout-section {
+        padding: 80px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hcontent, .hstats {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hstats {
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .habout-section {
+        padding: 60px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .habout-section {
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .hlearn-more {
+        padding: 8px 16px;
+    }
+
+    .hstat h2 {
+        font-size: 24px;
+    }
+
+    .hstat p {
+        font-size: 14px;
+    }
+}
+

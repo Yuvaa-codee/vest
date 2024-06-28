@@ -1,0 +1,100 @@
+/* styles.css */
+.sbody {
+    font-family: Arial, sans-serif;
+    background: url(4bg.png) no-repeat center center  ;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.scontainer {
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 80px;
+    color: white;
+}
+
+.soffer-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: stretch;
+}
+.soffer-content{
+    color: white;
+}
+
+.soffer-card {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+}
+
+.soffer-card h2 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.soffer-card .days {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.soffer-card .description {
+    font-size: 1em;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.scountdown {
+    background:rgba(9, 75, 255, 0.401);
+    grid-row: span 2;
+    grid-column: 1;
+}
+
+.sinvestors {
+    background: rgba(9, 75, 255, 0.401);
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sworkshops {
+    background: rgba(9, 75, 255, 0.401);
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 768px) {
+    .soffer-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .scountdown, .sinvestors, .sworkshops {
+        grid-column: 1;
+        grid-row: auto;
+    }
+}

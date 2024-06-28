@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovest Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+    <link rel="stylesheet" href="ino.css">
+
+    <link rel="stylesheet" href="3ha.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .event-list {
+            list-style-type: none;
+            padding: 0;
+            padding-left: 5px;
+            margin-top: 20px;
+            font-size: 20px;
+            text-decoration: underline;
+        }
+
+        .event-list-item {
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .event-list-item:hover {
+            text-decoration: underline;
+        }
+
+        .event-info {
+            margin-left: 20px;
+            font-size: larger;
+            width: 60%;
+        }
+
+        .responsive-element {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .responsive-element {
+                display: flex;
+            }
+        }
+
+        .responsive-element2 {
+            padding-left: 6px;
+            padding-right: 6px;
+            padding-bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .responsive-element2 {
+                padding-left: 16px;
+                padding-right: 16px;
+                padding-bottom: 20px;
+            }
+        }
+
+
+        .event-box {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .event-box {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="bg-gray-900 text-white">
+        <div class="min-h-screen bg-cover bg-center" style="background-image: url('./background-bg.png');">
+            <nav class="py-4" x-data="{ isOpen: false }">
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex-shrink-0">
+                            <img src="./upper-logo.png" alt="Innovest Logo" class="h-8 md:h-12">
+                        </div>
+                        <div class="hidden md:flex items-center space-x-8">
+                            <a href="#" class="hover:text-gray-300">About us</a>
+                            <a href="#" class="hover:text-gray-300">Team</a>
+                            <a href="#" class="hover:text-gray-300">Schedule</a>
+                            <a href="#" class="hover:text-gray-300">Blog</a>
+                        </div>
+                        <div class="hidden md:block">
+                            <button
+                                class="bg-transparent border border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-gray-800 transition duration-300">
+                                Get in touch →
+                            </button>
+                        </div>
+                        <div class="md:hidden">
+                            <button @click="isOpen = !isOpen" class="text-white focus:outline-none">
+                                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                                    <path x-show="!isOpen" fill-rule="evenodd"
+                                        d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+                                    <path x-show="isOpen" fill-rule="evenodd"
+                                        d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div x-show="isOpen" class="md:hidden mt-4">
+                        <a href="#" class="block py-2 hover:text-gray-300">About us</a>
+                        <a href="#" class="block py-2 hover:text-gray-300">Team</a>
+                        <a href="#" class="block py-2 hover:text-gray-300">Schedule</a>
+                        <a href="#" class="block py-2 hover:text-gray-300">Blog</a>
+                        <button
+                            class="bg-transparent border border-white text-white px-6 py-2 mt-4 rounded-full hover:bg-white hover:text-gray-800 transition duration-300 w-full">
+                            Get in touch →
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="py-4 overflow-x-auto" style="background-color:rgba(3,78,224,0.6);">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center space-x-8 md:justify-between">
+                        <p class="text-xs md:text-sm lg:text-base whitespace-nowrap">Global partners that trusted us</p>
+                        <div class="flex space-x-8 md:space-x-12">
+                            <img src="./partner-1.png" alt="Partner 1" class="h-4 md:h-6" />
+                            <img src="./partner-2.png" alt="Partner 2" class="h-4 md:h-6" />
+                            <img src="./partner-3.png" alt="Partner 3" class="h-4 md:h-6" />
+                            <img src="./partner-4.png" alt="Partner 4" class="h-4 md:h-6" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <main class="container mx-auto px-4 mt-12 md:mb-6">
+                <div class="flex flex-col md:flex-row justify-between items-start">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:ml-36">
+                        <img src="./logo-big.png" alt="Innovest Logo" class="w-full max-w-md mx-auto md:mx-0" />
+                        <p class="mt-6 text-sm md:text-base lg:text-lg max-w-lg">
+                            A pioneering entrepreneurial fiesta poised to make waves on a national scale over three
+                            exhilarating days. Our mission, To unite students, entrepreneurs, and investors under the
+                            banner of innovation and collaboration.
+                        </p>
+                        <div class="text-center md:mr-40">
+                            <button
+                                class="bg-blue-600 text-white px-8 py-3 rounded-full mt-6 hover:bg-blue-700 transition duration-300 text-center">
+                                EXPLORE
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="md:w-1/2 w-full text-center flex flex-col justify-center md:ml-36 md:text-right md:mr-40 ">
+                        <p class="text-sm mb-2  text-center">The countdown has begun!</p>
+                        <div id="countdown" class="text-5xl md:text-6xl lg:text-7xl font-bold mb-4"></div>
+                        <div class="flex justify-center justify-between text-xs md:text-sm mb-8">
+                            <span class="w-full text-center">DAYS</span>
+                            <span class="w-full text-center">HOURS</span>
+                            <span class="w-full text-center">MINUTES</span>
+                            <span class="w-full text-center seconds-color">SECONDS</span>
+                        </div>
+                        <button
+                            class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 md:mr-20">
+                            REGISTER
+                        </button>
+                        <div class="mt-8 space-y-4 md:mr-16">
+                            <div class="flex justify-center md:justify-end items-start">
+                                <span class="text-3xl md:text-4xl font-bold text-blue-600 mr-4">18</span>
+                                <div class="text-left">
+                                    <p class="font-bold">July, 2024</p>
+                                    <p class="text-xs md:text-sm">Doors open at 9am</p>
+                                    <p class="text-xs md:text-sm">About that day in single line</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center md:justify-end items-start">
+                                <span class="text-3xl md:text-4xl font-bold text-blue-600 mr-4">19</span>
+                                <div class="text-left">
+                                    <p class="font-bold">July, 2024</p>
+                                    <p class="text-xs md:text-sm">Doors open at 9am</p>
+                                    <p class="text-xs md:text-sm">About that day in single line</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center md:justify-end items-start">
+                                <span class="text-3xl md:text-4xl font-bold text-blue-600 mr-4">20</span>
+                                <div class="text-left">
+                                    <p class="font-bold">July, 2024</p>
+                                    <p class="text-xs md:text-sm">Doors open at 9am</p>
+                                    <p class="text-xs md:text-sm">About that day in single line</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <main class="ybody">
+                <div class="ycontainer">
+                    <div class="ycontent">
+                        <h1>ABOUT CIT</h1>
+                        <p>
+                            Chennai Institute of Technology, the best engineering college in Chennai was established
+                            with
+                            the objective of providing quality technical education with adequate industrial exposure
+                            than
+                            any other engineering colleges in Chennai, caters the needs of the youth with its innovative
+                            teaching methods. Apart from interactive classroom scenario, periodic guest lectures by
+                            experts
+                            from industries and academic background provides thirst to the students to learn and to
+                            prepare
+                            for the ready-to-serve industrial requirements with uncompromised professional ethics.
+                        </p>
+                        <div class="ytransforming-lives">
+                            <span>&#10004; Transforming Lives</span>
+                        </div>
+                        <a href="https://www.citchennai.edu.in/" class="hlearn-more">LEARN MORE</a>
+                    </div>
+                    <div class="ylogo">
+                        <img src="logo.png" alt="Chennai Institute of Technology Logo">
+                    </div>
+                </div>
+
+            </main>
+        </div>
+        <main class="hbody">
+            <div class="habout-section">
+                <div class="hoverlay">
+                    <div class="hcontent">
+
+                        <h1>ABOUT CITBIF</h1>
+                        <p>The Chennai Institute Technology Business Incubation Forum otherwise known as CITBIF, is an
+                            entrepreneurial marvel established within CIT with the sole purpose of fostering innovation
+                            and promoting the startup spirit among students. Over the years, CITBIF has been
+                            acknowledged to support budding entrepreneurs in turning their ideas into viable startups
+                            and serving as a catalyst for transforming innovative ideas into scalable businesses, CITBIF
+                            has been pioneer in empowering young generation entrepreneurs to make an imeasurable impact
+                            on the society..</p>
+                        <a href="http://www.citinnovationlabs.in/" class="hlearn-more">LEARN MORE</a>
+                    </div>
+                </div>
+                <div class="hstats">
+                    <div class="hstat">
+                        <h2>100+</h2>
+                        <p>NUMBER OF STARTUPS INCUBATED</p>
+                    </div>
+                    <div class="hstat">
+                        <h2>50+</h2>
+                        <p>NUMBER OF STUDENT STARTUPS</p>
+                    </div>
+                    <div class="hstat">
+                        <h2>25+</h2>
+                        <p>NUMBER OF PVT LTD STARTUPS</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <link rel="stylesheet" href="styles.css">
+        <main class="sbody">
+            <div class="scontainer">
+                <h1>INNOVEST OFFERS</h1>
+                <div class="soffer-grid">
+                    <div class="soffer-card scountdown">
+                        <div class="soffer-content">
+                            <h2>3</h2>
+                            <p class="sdays">DAYS</p>
+                            <p class="sdescription">Welcome to Innovest, an electrifying 3-day summit that converges
+                                trailblazing entrepreneurs, disruptive startups, and future leaders from colleges and
+                                schools. Immerse yourself in a high-energy environment with exclusive networking
+                                opportunities, groundbreaking innovations, and transformative workshops led by industry
+                                titans. Innovest is where visionary ideas and groundbreaking collaborations shape the
+                                future of innovation.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="soffer-card sinvestors">
+                        <div class="soffer-content">
+                            <h2>35+</h2>
+                            <p class="sdescription">Investors, speakers, mentors and juries to guide you through your
+                                career. .</p>
+                        </div>
+                    </div>
+                    <div class="soffer-card sworkshops">
+                        <div class="soffer-content">
+                            <h2>30+</h2>
+                            <p class="sdescription">workshops and Master-Classes on various domains.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    
+
+    
+
+
+    <script>
+        function updateCountdown() {
+          const eventDate = new Date("July 18, 2024 09:00:00").getTime();
+          const now = new Date().getTime();
+          const timeLeft = eventDate - now;
+      
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      
+          document.getElementById("countdown").innerHTML =
+            padNumber(days) + ":" +
+            padNumber(hours) + ":" +
+            padNumber(minutes) + ":" +
+            padNumber(seconds);
+      
+          if (timeLeft < 0) {
+            clearInterval(countdownTimer);
+            document.getElementById("countdown").innerHTML = "Event has started!";
+          }
+        }
+      
+        function padNumber(number) {
+          return number.toString().padStart(2, '0');
+        }
+      
+        const countdownTimer = setInterval(updateCountdown, 1000);
+      
+        updateCountdown();
+
+       
+      </script>
+</body>
+
+</html>
